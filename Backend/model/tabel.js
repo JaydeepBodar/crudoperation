@@ -6,4 +6,4 @@ const productschema=new mongoose.Schema({
     number: String,
     websitename: String,
 })
-module.exports=mongoose.model('tabel',productschema)
+module.exports=mongoose.model('tabels',productschema)
