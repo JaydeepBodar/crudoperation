@@ -9,12 +9,12 @@ const Aboutus = (props) => {
   useEffect(() => {
     axios
       .get("https://dummyjson.com/posts")
-      .then((newdata) => {setdata(newdata.data.posts)}).catch((error)=>setdata(error.posts));
-      setloading(false)
+      .then((newdata) => {setdata(newdata.data.posts);setloading(false)}).catch((error)=>setdata(error.posts));
+      
   }, []);
   return (
-    <section className={styles["about-section"]}>
-      {loading && <h1>Loading...</h1>}
+    <section className={loading ? styles['abt-section'] : styles['about-section'] }>
+      {loading && <h1 style={{textAlign:'center', margin:'10px 0'}}>Loading...</h1>}
       {!loading && Data.map((value, index) => {
         const {title,id,body}=value
         return (

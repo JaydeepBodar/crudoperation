@@ -1,4 +1,4 @@
-		 import axios from "axios";
+import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styles from "./Home.module.css";
@@ -33,23 +33,29 @@ const Home = (props) => {
     setData();
   }, []);
   const filterhandle = (e) => {
-    const search=e.target.value;
-    if(search.length > 0){
-      const resultdata=User.filter(item=>item.fullname.toLowerCase().includes(search))
-      setUser(resultdata)
+    const search = e.target.value;
+    if (search.length > 0) {
+      const resultdata = User.filter((item) =>
+        item.fullname.toLowerCase().includes(search)
+      );
+      setUser(resultdata);
+    } else {
+      setUser(filterdata);
     }
-    else{
-      setUser(filterdata)
-    }
-    searchfilter(search)
+    searchfilter(search);
   };
   return (
-    <React.Fragment>
-      {loading && <p style={{textAlign:'center'}}>Loading...</p>}
+    <section
+      className={loading ? styles["datasection"] : styles["data-section"]}
+    >
+      {loading && <h1 style={{ textAlign: "center",margin:'10px 0' }}>Loading...</h1>}
       {!loading && (
-        <div className={styles["data-section"]}>
-        <div className={styles["search-data"]}>
-             <label><h3>Search Record by Name:-</h3></label>
+    
+      <React.Fragment>
+      <div className={styles["search-data"]}>
+            <label>
+              <h3>Search Record by Name:-</h3>
+            </label>
             <input type="text" onChange={filterhandle} value={filter} />
           </div>
           <table className={styles["table-wrapper"]}>
@@ -98,9 +104,10 @@ const Home = (props) => {
               })}
             </tbody>
           </table>
-        </div>
+      </React.Fragment>
+        
       )}
-    </React.Fragment>
+    </section>
   );
 };
 
