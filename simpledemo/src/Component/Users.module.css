@@ -1,0 +1,43 @@
+.user-details{
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto;
+    padding: 30px 0;
+    box-shadow: 0px 0px 34px -3px rgba(0,0,0,0.44);
+    box-sizing: border-box;
+}
+.userlist{
+    margin: 0;
+    padding: 20px 0;
+}
+.userlist li{
+    list-style: none;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    border: 1px solid #808080;
+}
+.button{
+    width: 100%;
+    max-width: 100px;
+    padding: 10px 0;
+    text-align: center;
+    background-color: #9191eb;
+    border: 1px solid #9191eb;
+    font-size: 18px;
+    border-radius: 20px;
+    transition: all 0.5s linear;
+}
+.button:focus{
+    outline: none;
+}
+.button:hover{
+    background-color: #f2f2f2;
+    border: 1px solid #808080;
+}
+.form-btn{
+    text-align: center;
+}
