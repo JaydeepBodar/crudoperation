@@ -48,11 +48,12 @@ const Home = (props) => {
     <section
       className={loading ? styles["datasection"] : styles["data-section"]}
     >
-      {loading && <h1 style={{ textAlign: "center",margin:'10px 0' }}>Loading...</h1>}
+      {loading && (
+        <h1 style={{ textAlign: "center", margin: "10px 0" }}>Loading...</h1>
+      )}
       {!loading && (
-    
-      <React.Fragment>
-      <div className={styles["search-data"]}>
+        <React.Fragment>
+          <div className={styles["search-data"]}>
             <label>
               <h3>Search Record by Name:-</h3>
             </label>
@@ -93,7 +94,14 @@ const Home = (props) => {
                         </button>
                         <button
                           className={styles["button"]}
-                          onClick={() => Deletdata(id)}
+                          onClick={() => {
+                            const data = window.confirm(
+                              "Are you sure to delete user ? if yes then click ok otherwise click cancle"
+                            );
+                            if(data===true){
+                              Deletdata(id);
+                            }
+                          }}
                         >
                           Delete
                         </button>
@@ -104,8 +112,7 @@ const Home = (props) => {
               })}
             </tbody>
           </table>
-      </React.Fragment>
-        
+        </React.Fragment>
       )}
     </section>
   );
